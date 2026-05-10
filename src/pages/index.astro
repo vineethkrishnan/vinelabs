@@ -4,12 +4,11 @@ import Hero from "~/components/Hero.astro";
 import CategoriesStrip from "~/components/CategoriesStrip.astro";
 import StatStrip from "~/components/StatStrip.astro";
 import ProjectsGrid from "~/components/ProjectsGrid.astro";
-import ServicesGrid from "~/components/ServicesGrid.astro";
 import DarkBand from "~/components/DarkBand.astro";
 import ContactCTA from "~/components/ContactCTA.astro";
 
 const description =
-  "VineLabs is an indie lab building CLI tools, web apps, browser extensions, AI agents, platform extensions, and design systems. Self-host friendly, open by default.";
+  "VineLabs is a personal lab where I publish CLI tools, web apps, browser extensions, AI agents, platform extensions, and design systems as open source. Self-host friendly, open by default.";
 ---
 
 <BaseLayout title="VineLabs - A small lab. Many things shipped." description={description}>
@@ -18,6 +17,5 @@ const description =
   <ProjectsGrid />
   <StatStrip />
   <DarkBand />
-  <ServicesGrid />
   <ContactCTA />
 </BaseLayout>

@@ -3,19 +3,19 @@ const year = new Date().getFullYear();
 
 const cols = [
   {
-    heading: "Products",
+    heading: "Lab",
     links: [
-      { href: "/#products", label: "vaultctl" },
-      { href: "/#products", label: "xrechnung-kit" },
-      { href: "https://github.com/vinelabs-de", label: "All projects", external: true },
+      { href: "/#products", label: "Projects" },
+      { href: "/support", label: "Help" },
+      { href: "https://github.com/vinelabs-de", label: "GitHub org", external: true },
     ],
   },
   {
-    heading: "Services",
+    heading: "Open source",
     links: [
-      { href: "/#services", label: "Software development" },
-      { href: "/#services", label: "Shopware development" },
-      { href: "/#services", label: "Consulting" },
+      { href: "https://github.com/vinelabs-de/vaultctl", label: "vaultctl", external: true },
+      { href: "https://github.com/vinelabs-de/xrechnung-kit", label: "xrechnung-kit", external: true },
+      { href: "https://github.com/vinelabs-de", label: "All repositories", external: true },
     ],
   },
   {
@@ -23,7 +23,6 @@ const cols = [
     links: [
       { href: "mailto:info@vinelabs.de", label: "info@vinelabs.de" },
       { href: "mailto:support@vinelabs.de", label: "support@vinelabs.de" },
-      { href: "/support", label: "Support" },
     ],
   },
   {
@@ -31,7 +30,7 @@ const cols = [
     links: [
       { href: "/impressum", label: "Impressum" },
       { href: "/datenschutz", label: "Datenschutz" },
-      { href: "/support", label: "Support policy" },
+      { href: "/support", label: "Help" },
     ],
   },
 ];
@@ -56,7 +55,7 @@ const cols = [
           </span>
         </a>
         <p class="mt-4 text-sm text-white/70 max-w-sm leading-relaxed">
-          Independent lab - operated from India. CLI tools, web apps, browser extensions, AI agents, platform extensions, and design systems. Open by default.
+          A personal lab where my open-source side projects live. CLI tools, web apps, browser extensions, AI agents, platform plugins, design systems. Open by default.
         </p>
         <p class="mt-6 text-xs text-white/50">
           Crafted in India - shipped worldwide
@@ -88,7 +87,7 @@ const cols = [
     </div>
 
     <div class="mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-white/55">
-      <p>&copy; {year} VineLabs. All rights reserved.</p>
+      <p>&copy; {year} Vineeth N K. Projects under their respective open-source licenses.</p>
       <p>
         <a href="https://github.com/vinelabs-de" target="_blank" rel="noopener noreferrer" class="hover:text-white">github.com/vinelabs-de</a>
       </p>
