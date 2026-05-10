@@ -1,0 +1,81 @@
+---
+const services = [
+  {
+    title: "Custom software development",
+    description:
+      "Backend services, CLIs, internal tooling. Go, TypeScript, PHP, Python. Built to be handed over and maintained, not locked behind your invoice.",
+    points: [
+      "API design + implementation",
+      "Migrations from legacy systems",
+      "DevOps and release pipelines",
+    ],
+    accent: "vine",
+  },
+  {
+    title: "Shopware development",
+    description:
+      "Plugins, themes, and integrations for Shopware 6. From simple storefront tweaks to deep ERP and e-invoicing integrations.",
+    points: [
+      "Plugin development + Store submission",
+      "XRechnung / e-invoicing integration",
+      "Performance + checkout optimisation",
+    ],
+    accent: "leaf",
+  },
+  {
+    title: "Technical consulting",
+    description:
+      "Independent review of your stack, security posture, or release process. No sales hat - just an honest read with concrete next steps.",
+    points: [
+      "Architecture + threat-model review",
+      "Supply-chain hardening (SBOM, signing)",
+      "Code-review + onboarding playbooks",
+    ],
+    accent: "vine",
+  },
+];
+---
+
+<section id="services" class="py-20 md:py-28 bg-white border-y border-ink-100 scroll-mt-24">
+  <div class="container-page">
+    <div class="max-w-2xl mb-12">
+      <span class="chip">
+        <span class="h-1.5 w-1.5 rounded-full bg-vine-700"></span>
+        Services
+      </span>
+      <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-balance">
+        Hire the studio.
+      </h2>
+      <p class="mt-3 text-ink-600 text-lg leading-relaxed text-pretty">
+        Beyond the lab work, VineLabs takes on focused engagements where the open-source output makes for a faster, sharper studio to bring in.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {
+        services.map((service, index) => (
+          <article class="card flex flex-col h-full relative overflow-hidden">
+            <div class={`absolute top-0 left-0 right-0 h-0.5 ${service.accent === "leaf" ? "bg-leaf-500" : "bg-vine-700"}`}></div>
+            <div class="text-3xl font-mono font-semibold text-vine-900/20 mb-2">
+              {String(index + 1).padStart(2, "0")}
+            </div>
+            <h3 class="text-lg font-semibold tracking-tight text-ink-900">
+              {service.title}
+            </h3>
+            <p class="mt-2 text-sm text-ink-600 leading-relaxed">
+              {service.description}
+            </p>
+            <ul class="mt-4 space-y-1.5">
+              {service.points.map((point) => (
+                <li class="text-sm text-ink-800 flex items-start gap-2">
+                  <span class="mt-1.5 h-1 w-1 rounded-full bg-vine-700 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

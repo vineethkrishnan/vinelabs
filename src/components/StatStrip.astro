@@ -1,0 +1,27 @@
+---
+const stats = [
+  { value: "AGPL / MIT", label: "Open licenses" },
+  { value: "EN 16931", label: "XRechnung 3.0 strict" },
+  { value: "SLSA L3", label: "Provenance attested" },
+  { value: "Self-host", label: "Run it on your own metal" },
+];
+---
+
+<section class="border-y border-ink-100 bg-white">
+  <div class="container-page py-8">
+    <ul class="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
+      {
+        stats.map((stat) => (
+          <li class="flex flex-col gap-1">
+            <span class="text-base md:text-lg font-semibold text-vine-900 font-mono tracking-tight">
+              {stat.value}
+            </span>
+            <span class="text-xs text-ink-400 uppercase tracking-wider">
+              {stat.label}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

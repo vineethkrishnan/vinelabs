@@ -1,0 +1,282 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "~/components/ProjectCard.astro";
+import { CATEGORIES, type CategorySlug } from "~/lib/categories";
+
+const projects = (await getCollection("projects"))
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const counts = new Map<CategorySlug, number>();
+for (const category of CATEGORIES) counts.set(category.slug, 0);
+for (const project of projects) {
+  for (const slug of project.data.categories) {
+    counts.set(slug, (counts.get(slug) ?? 0) + 1);
+  }
+}
+---
+
+<section id="products" class="py-20 md:py-28 scroll-mt-24">
+  <div class="container-page">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+      <div class="max-w-2xl">
+        <span class="chip">
+          <span class="h-1.5 w-1.5 rounded-full bg-leaf-500"></span>
+          Lab work
+        </span>
+        <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-balance">
+          Tools you can <span class="text-vine-700">read</span>, run, and own.
+        </h2>
+        <p class="mt-3 text-ink-600 text-lg leading-relaxed text-pretty">
+          Every release ships with full source, signed binaries, and a self-host path. No managed-only feature gates, no telemetry sneaks.
+        </p>
+      </div>
+      <a
+        href="https://github.com/vinelabs-de"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm font-medium text-vine-700 hover:text-vine-900 inline-flex items-center gap-1.5 self-start md:self-auto"
+      >
+        All on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 17 17 7M9 7h8v8" />
+        </svg>
+      </a>
+    </div>
+
+    <div
+      class="flex flex-wrap gap-2 mb-8 pb-1 -mx-1 px-1 overflow-x-auto"
+      role="tablist"
+      aria-label="Filter projects by category"
+      data-filter-row
+    >
+      <button
+        type="button"
+        role="tab"
+        data-filter="all"
+        aria-selected="true"
+        class="filter-pill filter-pill-active"
+      >
+        All <span class="filter-count tabular-nums">{projects.length}</span>
+      </button>
+      {
+        CATEGORIES.map((category) => {
+          const count = counts.get(category.slug) ?? 0;
+          return (
+            <button
+              type="button"
+              role="tab"
+              data-filter={category.slug}
+              aria-selected="false"
+              disabled={count === 0}
+              class:list={[
+                "filter-pill",
+                count === 0 && "filter-pill-empty",
+              ]}
+            >
+              {category.name}
+              <span class="filter-count tabular-nums">{count === 0 ? "0" : count}</span>
+            </button>
+          );
+        })
+      }
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-5"
+      data-projects-grid
+    >
+      {
+        projects.map((project) => (
+          <div data-project-categories={project.data.categories.join(",")}>
+            <ProjectCard
+              name={project.data.name}
+              tagline={project.data.tagline}
+              description={project.data.description}
+              language={project.data.language}
+              license={project.data.license}
+              status={project.data.status}
+              highlights={project.data.highlights}
+              repo={project.data.repo}
+              docs={project.data.docs}
+              install={project.data.install}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      data-empty-state
+      hidden
+      class="mt-4 rounded-xl border border-dashed border-ink-200 bg-white p-10 text-center"
+    >
+      <p class="text-sm font-semibold text-ink-900">
+        Nothing in <span data-empty-category>this category</span> yet.
+      </p>
+      <p class="mt-1 text-sm text-ink-600">
+        Want to commission something? Drop a line to <a href="mailto:info@vinelabs.de" class="text-vine-700 underline">info@vinelabs.de</a>.
+      </p>
+      <button
+        type="button"
+        data-clear-filter
+        class="mt-5 btn btn-ghost-light text-sm py-2 px-3.5"
+      >
+        Show all projects
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--color-ink-600);
+    background: white;
+    border: 1px solid var(--color-ink-100);
+    transition: all 150ms ease;
+    white-space: nowrap;
+  }
+  .filter-pill:hover:not(:disabled) {
+    border-color: var(--color-vine-200);
+    color: var(--color-vine-900);
+  }
+  .filter-pill .filter-count {
+    font-size: 0.7rem;
+    color: var(--color-ink-400);
+    background: var(--color-ink-50);
+    border-radius: 999px;
+    padding: 0.05rem 0.45rem;
+    border: 1px solid var(--color-ink-100);
+  }
+  .filter-pill-active {
+    background: var(--color-vine-700);
+    border-color: var(--color-vine-700);
+    color: white;
+  }
+  .filter-pill-active:hover:not(:disabled) {
+    background: var(--color-vine-800);
+    border-color: var(--color-vine-800);
+    color: white;
+  }
+  .filter-pill-active .filter-count {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .filter-pill-empty {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+</style>
+
+<script>
+  const ALL = "all";
+  const HASH_PATTERN = /^#cat=([\w-]+)$/;
+
+  const filterRow = document.querySelector<HTMLElement>("[data-filter-row]");
+  const grid = document.querySelector<HTMLElement>("[data-projects-grid]");
+  const emptyState = document.querySelector<HTMLElement>("[data-empty-state]");
+  const emptyCategoryLabel = document.querySelector<HTMLElement>(
+    "[data-empty-category]",
+  );
+  const productsSection = document.getElementById("products");
+
+  if (filterRow && grid && emptyState && emptyCategoryLabel && productsSection) {
+    const cards = Array.from(
+      grid.querySelectorAll<HTMLElement>("[data-project-categories]"),
+    );
+    const pills = Array.from(
+      filterRow.querySelectorAll<HTMLButtonElement>("[data-filter]"),
+    );
+
+    function readHash(): string {
+      const match = window.location.hash.match(HASH_PATTERN);
+      return match?.[1] ?? ALL;
+    }
+
+    function pillLabel(slug: string): string {
+      const pill = pills.find((p) => p.dataset.filter === slug);
+      return pill?.textContent?.trim().replace(/\s+\d+$/, "") ?? slug;
+    }
+
+    function applyFilter(slug: string) {
+      pills.forEach((pill) => {
+        const isActive = pill.dataset.filter === slug;
+        pill.classList.toggle("filter-pill-active", isActive);
+        pill.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const cats = (card.dataset.projectCategories ?? "").split(",");
+        const visible = slug === ALL || cats.includes(slug);
+        card.style.display = visible ? "" : "none";
+        if (visible) visibleCount += 1;
+      });
+
+      if (visibleCount === 0 && slug !== ALL) {
+        emptyState.hidden = false;
+        emptyCategoryLabel.textContent = pillLabel(slug);
+        grid.style.display = "none";
+      } else {
+        emptyState.hidden = true;
+        grid.style.display = "";
+      }
+    }
+
+    pills.forEach((pill) => {
+      pill.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (pill.disabled) return;
+        const slug = pill.dataset.filter ?? ALL;
+        const newHash = slug === ALL ? "" : `#cat=${slug}`;
+        if (newHash) {
+          window.history.replaceState(null, "", newHash);
+        } else {
+          window.history.replaceState(
+            null,
+            "",
+            window.location.pathname + window.location.search,
+          );
+        }
+        applyFilter(slug);
+      });
+    });
+
+    document
+      .querySelector<HTMLButtonElement>("[data-clear-filter]")
+      ?.addEventListener("click", () => {
+        window.history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search,
+        );
+        applyFilter(ALL);
+      });
+
+    document
+      .querySelectorAll<HTMLAnchorElement>("[data-category-link]")
+      .forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const slug = link.dataset.categoryLink ?? ALL;
+          window.history.replaceState(null, "", `#cat=${slug}`);
+          applyFilter(slug);
+          productsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+    window.addEventListener("hashchange", () => {
+      applyFilter(readHash());
+    });
+
+    applyFilter(readHash());
+  }
+</script>

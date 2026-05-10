@@ -1,0 +1,57 @@
+# Drop this file into a source repo as `.github/workflows/mirror-to-vinelabs.yml`.
+# It mirrors every push (all branches and tags) from the source repo to a read-only
+# copy under the vinelabs-de org.
+#
+# Required setup, once per source repo:
+# 1. In github.com/vinelabs-de, create the empty target repo (same name as source).
+# 2. Create a fine-grained PAT (https://github.com/settings/tokens?type=beta) with:
+#      - Resource owner: vinelabs-de
+#      - Repository access: only the target repo (or all)
+#      - Permissions: Contents (Read and write), Metadata (Read)
+# 3. In the source repo, add the PAT as a repository secret named `VINELABS_MIRROR_PAT`.
+# 4. (Optional) set MIRROR_REPO below if the org-side name differs from the source name.
+#
+# The mirror is one-way. Do not push directly to vinelabs-de/<repo>; commits there
+# are overwritten on the next mirror run.
+
+name: Mirror to vinelabs-de
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["**"]
+  delete:
+
+concurrency:
+  group: mirror-${{ github.repository }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Push mirror to vinelabs-de
+        env:
+          MIRROR_PAT: ${{ secrets.VINELABS_MIRROR_PAT }}
+          # Override only if the org-side repo name differs from the source repo name.
+          MIRROR_REPO: ${{ github.event.repository.name }}
+        run: |
+          set -euo pipefail
+          if [ -z "${MIRROR_PAT}" ]; then
+            echo "VINELABS_MIRROR_PAT secret is not set; skipping mirror." >&2
+            exit 1
+          fi
+          git config --global user.name "vinelabs-mirror-bot"
+          git config --global user.email "mirror-bot@vinelabs.de"
+          git remote add mirror "https://x-access-token:${MIRROR_PAT}@github.com/vinelabs-de/${MIRROR_REPO}.git"
+          # --mirror pushes all refs (branches, tags, notes) and prunes deleted refs on the target.
+          git push mirror --mirror

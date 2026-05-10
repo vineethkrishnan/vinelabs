@@ -1,0 +1,68 @@
+---
+import ProductCardMockup from "~/components/ProductCardMockup.astro";
+---
+
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 gradient-vine opacity-[0.04]"></div>
+    <div
+      class="absolute -top-40 -right-32 h-[36rem] w-[36rem] rounded-full bg-leaf-500/15 blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute -bottom-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-vine-700/10 blur-3xl"
+    >
+    </div>
+  </div>
+
+  <div class="container-page pt-16 md:pt-24 pb-20 md:pb-28">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div class="lg:col-span-7">
+        <span class="chip">
+          <span class="h-1.5 w-1.5 rounded-full bg-vine-600 animate-pulse-dot"></span>
+          Independent lab - operated from India
+        </span>
+
+        <h1 class="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance leading-[1.05]">
+          <span class="text-vine-900">A small lab.</span>
+          <span class="block text-leaf-500">Many things shipped.</span>
+        </h1>
+
+        <p class="mt-6 max-w-xl text-lg text-ink-600 leading-relaxed text-pretty">
+          VineLabs is where I build CLI tools, web apps, browser extensions, AI agents, Shopware plugins, and the occasional design system. Open by default. Self-host friendly. No telemetry games.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#products" class="btn btn-primary">
+            See the lab
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="mailto:info@vinelabs.de" class="btn btn-ghost-light">
+            Start a project
+          </a>
+        </div>
+
+        <dl class="mt-10 grid grid-cols-3 gap-6 max-w-md">
+          <div>
+            <dt class="text-xs font-medium text-ink-400 uppercase tracking-wider">Disciplines</dt>
+            <dd class="mt-1 text-2xl font-semibold text-vine-900">6+</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-medium text-ink-400 uppercase tracking-wider">Open by default</dt>
+            <dd class="mt-1 text-2xl font-semibold text-vine-900">100%</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-medium text-ink-400 uppercase tracking-wider">Founded</dt>
+            <dd class="mt-1 text-2xl font-semibold text-vine-900">2025</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="lg:col-span-5">
+        <ProductCardMockup />
+      </div>
+    </div>
+  </div>
+</section>

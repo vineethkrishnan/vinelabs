@@ -1,0 +1,97 @@
+---
+const year = new Date().getFullYear();
+
+const cols = [
+  {
+    heading: "Products",
+    links: [
+      { href: "/#products", label: "vaultctl" },
+      { href: "/#products", label: "xrechnung-kit" },
+      { href: "https://github.com/vinelabs-de", label: "All projects", external: true },
+    ],
+  },
+  {
+    heading: "Services",
+    links: [
+      { href: "/#services", label: "Software development" },
+      { href: "/#services", label: "Shopware development" },
+      { href: "/#services", label: "Consulting" },
+    ],
+  },
+  {
+    heading: "Contact",
+    links: [
+      { href: "mailto:info@vinelabs.de", label: "info@vinelabs.de" },
+      { href: "mailto:support@vinelabs.de", label: "support@vinelabs.de" },
+      { href: "/support", label: "Support" },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
+      { href: "/impressum", label: "Impressum" },
+      { href: "/datenschutz", label: "Datenschutz" },
+      { href: "/support", label: "Support policy" },
+    ],
+  },
+];
+---
+
+<footer class="relative gradient-vine text-white mt-24 overflow-hidden">
+  <div class="grain absolute inset-0 opacity-40 pointer-events-none"></div>
+  <div class="container-page relative py-16">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+      <div class="md:col-span-2">
+        <a href="/" class="inline-flex items-center gap-2.5" aria-label="VineLabs home">
+          <img
+            src="/brand/mark-on-dark.svg"
+            alt=""
+            width="32"
+            height="32"
+            class="h-8 w-8"
+            onerror="this.style.display='none'"
+          />
+          <span class="text-xl font-semibold tracking-tight">
+            <span class="text-white">Vine</span><span class="text-leaf-400">Labs</span>
+          </span>
+        </a>
+        <p class="mt-4 text-sm text-white/70 max-w-sm leading-relaxed">
+          Independent lab - operated from India. CLI tools, web apps, browser extensions, AI agents, platform extensions, and design systems. Open by default.
+        </p>
+        <p class="mt-6 text-xs text-white/50">
+          Crafted in India - shipped worldwide
+        </p>
+      </div>
+
+      {
+        cols.map((col) => (
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-white/60 mb-3">
+              {col.heading}
+            </h4>
+            <ul class="space-y-2">
+              {col.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-sm text-white/85 hover:text-white transition-colors"
+                    {...link.external ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-white/55">
+      <p>&copy; {year} VineLabs. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/vinelabs-de" target="_blank" rel="noopener noreferrer" class="hover:text-white">github.com/vinelabs-de</a>
+      </p>
+    </div>
+  </div>
+</footer>

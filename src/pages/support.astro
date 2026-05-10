@@ -1,0 +1,130 @@
+---
+import LegalLayout from "~/layouts/LegalLayout.astro";
+
+const lastUpdated = "2026-05-10";
+---
+
+<LegalLayout
+  title="Support"
+  description="VineLabs support policy: contact channels, response times, scope, security disclosure. Also serves as the support page for Shopware Store customers."
+  lastUpdated={lastUpdated}
+>
+  <p>
+    Clear channels, predictable response times, and tickets answered by the engineer who built the thing. This page also serves as the support reference for customers reaching us through the Shopware Store, Packagist, or GitHub.
+  </p>
+
+  <nav aria-label="Inhaltsverzeichnis Support" class="not-prose mt-6 mb-10 rounded-lg border border-ink-100 bg-white p-5">
+    <p class="text-xs font-semibold uppercase tracking-wider text-ink-400 mb-3">On this page</p>
+    <ol class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 text-sm text-ink-800 list-decimal list-inside marker:text-vine-700">
+      <li><a href="#channels" class="hover:text-vine-900">Contact channels</a></li>
+      <li><a href="#hours" class="hover:text-vine-900">Business hours</a></li>
+      <li><a href="#sla" class="hover:text-vine-900">Response times</a></li>
+      <li><a href="#shopware" class="hover:text-vine-900">Shopware Store customers</a></li>
+      <li><a href="#ticket" class="hover:text-vine-900">What to include in a ticket</a></li>
+      <li><a href="#security" class="hover:text-vine-900">Security disclosure</a></li>
+      <li><a href="#scope" class="hover:text-vine-900">Out of scope</a></li>
+      <li><a href="#warranty" class="hover:text-vine-900">Warranty and statutory rights</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="channels">1. Contact channels</h2>
+  <ul>
+    <li>
+      <strong>Product issues, bugs, install help:</strong>
+      <a href="mailto:support@vinelabs.de">support@vinelabs.de</a>
+    </li>
+    <li>
+      <strong>Sales, partnerships, custom work:</strong>
+      <a href="mailto:info@vinelabs.de">info@vinelabs.de</a>
+    </li>
+    <li>
+      <strong>Public bug reports and feature requests:</strong> the GitHub repository of the affected product at
+      {" "}<a href="https://github.com/vinelabs-de" target="_blank" rel="noopener noreferrer">github.com/vinelabs-de</a>.
+    </li>
+    <li>
+      <strong>Postal mail:</strong> see the address in the <a href="/impressum">Impressum</a>.
+    </li>
+  </ul>
+  <p>
+    Communication can be in English or German. Geschaeftssprachen sind Deutsch und Englisch; die deutsche Fassung ist im Zweifel massgeblich.
+  </p>
+
+  <h2 id="hours">2. Business hours</h2>
+  <p>
+    The operator is based in India. Support is staffed Monday to Friday, <strong>09:00 to 18:00 IST</strong> (UTC+05:30), excluding Indian public holidays. This corresponds roughly to <strong>05:30 to 14:30 CET</strong> (or 04:30 to 13:30 CEST during European summer time), which means messages from German customers sent during the European morning typically receive a response within the same European workday.
+  </p>
+  <p>
+    Emails received outside these hours are processed on the next operator business day.
+  </p>
+
+  <h2 id="sla">3. Response times</h2>
+  <p>
+    Standard response targets, measured from receipt:
+  </p>
+  <ul>
+    <li><strong>First response:</strong> within 1 business day</li>
+    <li><strong>Acknowledged bug, triage status:</strong> within 3 business days</li>
+    <li><strong>Critical security issue:</strong> first response within 24 hours, including weekends</li>
+    <li><strong>Patch release for a confirmed critical bug:</strong> targeted within 7 business days</li>
+  </ul>
+  <p>
+    These targets are best-effort. Paid support contracts with binding SLAs, named contacts, and out-of-hours escalation are available on request via <a href="mailto:info@vinelabs.de">info@vinelabs.de</a>.
+  </p>
+
+  <h2 id="shopware">4. Shopware Store customers</h2>
+  <p>
+    If you purchased a plugin or extension from us via the <strong>Shopware Store</strong>, support is provided exclusively in writing via the channels listed under section 1. Please reference your Shopware Store order number in the first message; this allows us to verify the support entitlement and the version you are running.
+  </p>
+  <p>
+    Bug reports and configuration questions for Shopware extensions are answered free of charge for the duration of the active support period that is shipped with the purchase. Custom development, deep integration work, or migrations of legacy data are scoped separately as consulting (see Services on the <a href="/">homepage</a>).
+  </p>
+
+  <h2 id="ticket">5. What to include in a ticket</h2>
+  <p>
+    A good ticket gets a fast, accurate answer. Please include:
+  </p>
+  <ul>
+    <li>Product name and exact version (for example: <code>vaultctl 0.5.2</code> or <code>xrechnung-kit-core 3.1.0</code>, or the Shopware plugin technical name and version).</li>
+    <li>How you installed the product (binary, container image, Composer, plugin manager, source build).</li>
+    <li>Runtime versions (PHP version including extensions, Shopware version including build, Go version, Node version, OS).</li>
+    <li>What you expected to happen, and what happened instead.</li>
+    <li>Reproduction steps. The smaller the better.</li>
+    <li>Relevant logs and stack traces, with secrets redacted (replace tokens with <code>***</code>).</li>
+    <li>For Shopware extensions: the order number from the Shopware Store, if applicable.</li>
+  </ul>
+  <p>
+    For e-invoicing (xrechnung-kit) tickets, please attach the input value object and the validator output. For vaultctl, please <strong>do not</strong> attach your encrypted vault file.
+  </p>
+
+  <h2 id="security">6. Security disclosure</h2>
+  <p>
+    Found a security issue? Please do not open a public issue. Email <a href="mailto:support@vinelabs.de">support@vinelabs.de</a> with the subject prefix <code>[security]</code>. We will acknowledge within 24 hours, coordinate disclosure with you, and credit your report (or keep it anonymous on request).
+  </p>
+  <p>
+    Each repository also ships a <code>SECURITY.md</code> with a PGP key and the canonical reporting flow. We follow a coordinated-disclosure policy with a default 90-day window before public disclosure, shortened in cases of active exploitation.
+  </p>
+
+  <h2 id="scope">7. Out of scope</h2>
+  <p>
+    The following are not covered by standard support and require a paid consulting engagement:
+  </p>
+  <ul>
+    <li>Forks where you have modified core security or cryptographic code (we will help you upstream the fix instead)</li>
+    <li>Versions older than two minor releases behind the current stable</li>
+    <li>Stack-specific glue code that is not part of the published packages</li>
+    <li>Migrations of legacy systems and data imports</li>
+    <li>Performance tuning of your specific deployment topology</li>
+    <li>Incident-response under hours of pressure (this is offered as a separate engagement with a binding response time)</li>
+  </ul>
+
+  <h2 id="warranty">8. Warranty, governing law and statutory rights</h2>
+  <p>
+    The above response times are best-effort service targets and do not constitute a contractually binding warranty unless agreed in a separate written contract. The operator is established in India; contracts concluded directly with the operator are governed by the laws of the Republic of India unless otherwise agreed in writing.
+  </p>
+  <p>
+    For purchases made via the <strong>Shopware Store</strong>, the terms and conditions of shopware AG (Schoeppingen, Germany) additionally apply, including their consumer-protection provisions. For end customers domiciled in the European Union, the mandatory consumer-protection rules of the country of habitual residence remain unaffected (in Germany in particular Sections 433 ff. BGB and Sections 327 ff. BGB for digital products).
+  </p>
+  <p>
+    For repository code published under an open-source license (e.g. AGPL-3.0, MIT), the warranty disclaimer in the respective license file governs. Standard support under this policy does not modify or override those license terms.
+  </p>
+</LegalLayout>

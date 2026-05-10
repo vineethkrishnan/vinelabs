@@ -1,0 +1,61 @@
+---
+import "~/styles/global.css";
+import Header from "~/components/Header.astro";
+import Footer from "~/components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pathname?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  pathname = Astro.url.pathname,
+  ogImage = "/brand/og-default.png",
+} = Astro.props;
+
+const canonical = new URL(pathname, Astro.site ?? "https://vinelabs.de").toString();
+const fullTitle = title.includes("VineLabs") ? title : `${title} | VineLabs`;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+    <link rel="alternate icon" href="/brand/favicon.ico" />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site ?? "https://vinelabs.de").toString()} />
+    <meta property="og:site_name" content="VineLabs" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <meta name="theme-color" content="#0d4f2c" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#062b17" media="(prefers-color-scheme: dark)" />
+
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  </head>
+  <body class="min-h-screen flex flex-col antialiased">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

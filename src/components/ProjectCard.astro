@@ -1,0 +1,102 @@
+---
+interface Props {
+  name: string;
+  tagline: string;
+  description: string;
+  language: string;
+  license: string;
+  status: "stable" | "beta" | "alpha";
+  highlights: string[];
+  repo: string;
+  docs?: string;
+  install?: string;
+}
+
+const {
+  name,
+  tagline,
+  description,
+  language,
+  license,
+  status,
+  highlights,
+  repo,
+  docs,
+  install,
+} = Astro.props;
+
+const statusLabel = {
+  stable: { dot: "bg-vine-500", text: "Stable" },
+  beta: { dot: "bg-amber-400", text: "Beta" },
+  alpha: { dot: "bg-rose-400", text: "Alpha" },
+}[status];
+---
+
+<article class="card flex flex-col h-full">
+  <header class="flex items-start justify-between gap-4">
+    <div>
+      <h3 class="text-xl font-semibold tracking-tight text-ink-900">{name}</h3>
+      <p class="mt-1 text-sm text-ink-600">{tagline}</p>
+    </div>
+    <span class="chip whitespace-nowrap">
+      <span class={`h-1.5 w-1.5 rounded-full ${statusLabel.dot}`}></span>
+      {statusLabel.text}
+    </span>
+  </header>
+
+  <p class="mt-4 text-sm text-ink-600 leading-relaxed">{description}</p>
+
+  <ul class="mt-5 space-y-2">
+    {
+      highlights.map((highlight) => (
+        <li class="flex items-start gap-2 text-sm text-ink-800">
+          <svg class="mt-1 h-3.5 w-3.5 text-vine-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 0 1 1.4-1.4L8.5 12 15.3 5.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" />
+          </svg>
+          <span>{highlight}</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    install && (
+      <pre class="mt-5 rounded-lg bg-ink-900 text-white text-xs font-mono p-3 overflow-x-auto">
+        <code>{install}</code>
+      </pre>
+    )
+  }
+
+  <footer class="mt-auto pt-5 flex items-center justify-between border-t border-ink-100">
+    <div class="flex items-center gap-3 text-xs text-ink-400">
+      <span class="font-mono">{language}</span>
+      <span class="h-1 w-1 rounded-full bg-ink-200"></span>
+      <span>{license}</span>
+    </div>
+    <div class="flex items-center gap-3">
+      {
+        docs && (
+          <a
+            href={docs}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-ink-600 hover:text-vine-900 transition-colors"
+          >
+            Docs
+          </a>
+        )
+      }
+      <a
+        href={repo}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm font-medium text-vine-700 hover:text-vine-900 transition-colors inline-flex items-center gap-1"
+      >
+        Repo
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 17 17 7M9 7h8v8" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+</article>

@@ -1,0 +1,46 @@
+---
+const links = [
+  { href: "/#products", label: "Products" },
+  { href: "/#services", label: "Services" },
+  { href: "/#contact", label: "Contact" },
+  { href: "https://github.com/vinelabs-de", label: "GitHub", external: true },
+];
+---
+
+<header class="sticky top-0 z-40 backdrop-blur-md bg-white/75 border-b border-ink-100/70">
+  <div class="container-page flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-2.5 group" aria-label="VineLabs home">
+      <img
+        src="/brand/mark.svg"
+        alt=""
+        width="28"
+        height="28"
+        class="h-7 w-7 transition-transform group-hover:rotate-[-4deg]"
+        onerror="this.style.display='none'"
+      />
+      <span class="font-semibold text-[1.05rem] tracking-tight">
+        <span class="text-vine-900">Vine</span><span class="text-leaf-500">Labs</span>
+      </span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7" aria-label="Primary">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-ink-600 hover:text-vine-900 transition-colors"
+            {...link.external ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="mailto:info@vinelabs.de" class="btn btn-primary text-sm py-2 px-3.5">
+        Get in touch
+      </a>
+    </div>
+  </div>
+</header>
