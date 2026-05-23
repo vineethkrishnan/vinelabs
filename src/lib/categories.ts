@@ -5,6 +5,7 @@ export const CATEGORY_SLUGS = [
   "ai-agents",
   "platform-extensions",
   "design-systems",
+  "web-libraries",
 ] as const;
 
 export type CategorySlug = (typeof CATEGORY_SLUGS)[number];
@@ -52,6 +53,12 @@ export const CATEGORIES: Category[] = [
     name: "Design systems",
     blurb: "Tokens, components, docs you can copy.",
     icon: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+  },
+  {
+    slug: "web-libraries",
+    name: "Web libraries",
+    blurb: "Drop-in libraries and plugins for the browser.",
+    icon: "M3 12h18M12 3v18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4",
   },
 ];
 

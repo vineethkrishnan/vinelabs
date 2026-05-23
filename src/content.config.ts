@@ -19,6 +19,7 @@ const projects = defineCollection({
           "ai-agents",
           "platform-extensions",
           "design-systems",
+          "web-libraries",
         ]),
       )
       .min(1)
