@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.2](https://github.com/vineethkrishnan/vinelabs/compare/v0.1.1...v0.1.2) (2026-05-31)
+
+
+### Features
+
+* **seo:** add structured data, fix icons and social card meta ([#7](https://github.com/vineethkrishnan/vinelabs/issues/7)) ([d23675f](https://github.com/vineethkrishnan/vinelabs/commit/d23675fefc93906495f9a4d86d6fb33562623dbd))
+
+
+### Bug Fixes
+
+* **deps:** upgrade to astro 6 and pin yaml to clear security alerts ([#9](https://github.com/vineethkrishnan/vinelabs/issues/9)) ([ec5a95b](https://github.com/vineethkrishnan/vinelabs/commit/ec5a95bebde9872a76f1b39f9c3b86a221a467b8))
+
 ## [0.1.1](https://github.com/vineethkrishnan/vinelabs/compare/v0.1.0...v0.1.1) (2026-05-23)
 
 
