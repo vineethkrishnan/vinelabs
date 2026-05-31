@@ -17,8 +17,29 @@ const {
   ogImage = "/brand/og-default.png",
 } = Astro.props;
 
-const canonical = new URL(pathname, Astro.site ?? "https://vinelabs.de").toString();
+const siteOrigin = Astro.site ?? "https://vinelabs.de";
+const canonical = new URL(pathname, siteOrigin).toString();
+const ogImageUrl = new URL(ogImage, siteOrigin).toString();
 const fullTitle = title.includes("VineLabs") ? title : `${title} | VineLabs`;
+
+const siteStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: "VineLabs",
+      url: new URL("/", siteOrigin).toString(),
+      description:
+        "A personal, non-commercial open-source lab: CLI tools, web apps, browser extensions, AI agents, platform extensions, and design systems.",
+    },
+    {
+      "@type": "Organization",
+      name: "VineLabs",
+      url: new URL("/", siteOrigin).toString(),
+      logo: new URL("/brand/icon-512.png", siteOrigin).toString(),
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -27,7 +48,9 @@ const fullTitle = title.includes("VineLabs") ? title : `${title} | VineLabs`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
-    <link rel="alternate icon" href="/brand/favicon.ico" />
+    <link rel="alternate icon" type="image/png" href="/brand/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href={canonical} />
     <meta name="generator" content={Astro.generator} />
 
@@ -38,18 +61,26 @@ const fullTitle = title.includes("VineLabs") ? title : `${title} | VineLabs`;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site ?? "https://vinelabs.de").toString()} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content={fullTitle} />
     <meta property="og:site_name" content="VineLabs" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={fullTitle} />
 
     <meta name="theme-color" content="#0d4f2c" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#062b17" media="(prefers-color-scheme: dark)" />
 
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(siteStructuredData)} />
+    <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col antialiased">
     <Header />

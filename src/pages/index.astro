@@ -6,12 +6,42 @@ import StatStrip from "~/components/StatStrip.astro";
 import ProjectsGrid from "~/components/ProjectsGrid.astro";
 import DarkBand from "~/components/DarkBand.astro";
 import ContactCTA from "~/components/ContactCTA.astro";
+import { getCollection } from "astro:content";
 
 const description =
-  "VineLabs is a personal lab where I publish CLI tools, web apps, browser extensions, AI agents, platform extensions, and design systems as open source. Self-host friendly, open by default.";
+  "A personal open-source lab: CLI tools, web apps, browser extensions, AI agents, and design systems. Self-host friendly, open by default.";
+
+const projects = (await getCollection("projects"))
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const projectsStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "VineLabs open-source projects",
+  itemListElement: projects.map((project, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "SoftwareSourceCode",
+      name: project.data.name,
+      description: project.data.description,
+      codeRepository: project.data.repo,
+      programmingLanguage: project.data.language,
+      license: project.data.license,
+      ...(project.data.docs ? { url: project.data.docs } : {}),
+    },
+  })),
+};
 ---
 
 <BaseLayout title="VineLabs - A small lab. Many things shipped." description={description}>
+  <script
+    type="application/ld+json"
+    is:inline
+    slot="head"
+    set:html={JSON.stringify(projectsStructuredData)}
+  />
   <Hero />
   <CategoriesStrip />
   <ProjectsGrid />
