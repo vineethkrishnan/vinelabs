@@ -4,7 +4,7 @@ tagline: Lightweight media file converter with an interactive wizard
 description: Python CLI that wraps the common audio and video conversion paths behind a guided prompt. Pick a source, pick a target, watch the progress bar - no remembering ffmpeg flags. Single-binary distribution, no GUI required.
 language: Python
 license: MIT
-status: alpha
+status: stable
 categories:
   - cli-tools
 highlights:

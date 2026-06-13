@@ -4,7 +4,7 @@ tagline: Audit-first Docker disk analysis and cleanup
 description: Replaces blind `docker system prune -a` with a transparent, risk-aware workflow. Classifies every image, container, volume, and build cache entry into SAFE, REVIEW, or PROTECTED so you can reclaim space without nuking critical infrastructure. Full JSON output for CI pipelines and dashboards.
 language: Go
 license: MIT
-status: beta
+status: stable
 categories:
   - cli-tools
 highlights:

@@ -1,6 +1,6 @@
 {
-  "name": "VineLabs",
-  "short_name": "VineLabs",
+  "name": "VineLab",
+  "short_name": "VineLab",
   "description": "A personal open-source lab: CLI tools, web apps, browser extensions, AI agents, and design systems.",
   "start_url": "/",
   "display": "standalone",

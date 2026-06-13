@@ -16,7 +16,7 @@ highlights:
   - Falls back to whitespace-only normalisation for languages without an AST adapter
 order: 120
 repo: https://github.com/vineethkrishnan/clearpr
-docs: https://clearpr-docs.vinelabs.de
+docs: https://clearpr-docs.vinelab.in
 ---
 
 ClearPR is what code review feels like when the formatter stops shouting.

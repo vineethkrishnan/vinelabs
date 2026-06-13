@@ -1,12 +1,12 @@
-# VineLabs
+# VineLab
 
 > A small lab. Many things shipped.
 
-VineLabs is a personal, non-commercial open-source lab. It is where I park the side projects I write in my spare time - CLI tools, web apps, browser extensions, AI agents, platform plugins, the occasional design system - and publish them under permissive or copyleft licenses so anyone can read, run, and own what they use.
+VineLab is a personal, non-commercial open-source lab. It is where I park the side projects I write in my spare time - CLI tools, web apps, browser extensions, AI agents, platform plugins, the occasional design system - and publish them under permissive or copyleft licenses so anyone can read, run, and own what they use.
 
-- **Web:** <https://vinelabs.de>
+- **Web:** <https://vinelab.in>
 - **Source:** <https://github.com/vinelabs-de>
-- **Help:** <https://vinelabs.de/support>
+- **Help:** <https://vinelab.in/support>
 
 ## What is the lab?
 
@@ -19,11 +19,11 @@ A free-time workshop. Nothing here is for sale. There are no paid tiers, no mana
 | **vaultctl**       | Self-hosted, zero-knowledge password vault. One Go binary, browser extension, CLI. | AGPL-3.0 | Beta   |
 | **xrechnung-kit**  | EN 16931 / XRechnung 3.0 e-invoicing toolkit for PHP. Adapters for Laravel, Symfony, CakePHP, Laminas, Shopware, TYPO3, WordPress. | MIT | Stable |
 
-The full list of projects, with categories and per-project links, lives at <https://vinelabs.de> and at <https://github.com/vinelabs-de>.
+The full list of projects, with categories and per-project links, lives at <https://vinelab.in> and at <https://github.com/vinelabs-de>.
 
 ## What comes out of the lab
 
-VineLabs publishes work across six disciplines:
+VineLab publishes work across six disciplines:
 
 - **CLI tools** - single-binary tools that respect your terminal
 - **Web apps** - self-hostable, audit-friendly web software
@@ -49,16 +49,16 @@ The fastest way to talk about a project is on GitHub:
 
 - **Bugs and feature requests:** open an issue on the project's repository at <https://github.com/vinelabs-de>
 - **Questions and discussions:** GitHub Discussions on the relevant repo, where enabled
-- **Email:** [support@vinelabs.de](mailto:support@vinelabs.de) for project help, [info@vinelabs.de](mailto:info@vinelabs.de) for general feedback
+- **Email:** [support@vinelab.in](mailto:support@vinelab.in) for project help, [info@vinelab.in](mailto:info@vinelab.in) for general feedback
 
-For full help guidelines, see <https://vinelabs.de/support>. For security disclosures, see the `SECURITY.md` in the affected repository.
+For full help guidelines, see <https://vinelab.in/support>. For security disclosures, see the `SECURITY.md` in the affected repository.
 
 ## Who is behind it
 
-VineLabs is run by **Vineeth N K**, a software engineer based in India. Full Impressum at <https://vinelabs.de/impressum>; privacy policy at <https://vinelabs.de/datenschutz>.
+VineLab is run by **Vineeth N K**, a software engineer based in India. Full Impressum at <https://vinelab.in/impressum>; privacy policy at <https://vinelab.in/datenschutz>.
 
 ## Licensing
 
 Each project in the lab ships under its own open-source license, declared in its repository. The license file is the single source of truth for what you can and cannot do with that project.
 
-This repository (the source of `vinelabs.de`) is published for transparency. Logo files, brand marks, and the wordmark "VineLabs" are not licensed for reuse outside this site.
+This repository (the source of `vinelab.in`) is published for transparency. Logo files, brand marks, and the wordmark "VineLab" are not licensed for reuse outside this site.

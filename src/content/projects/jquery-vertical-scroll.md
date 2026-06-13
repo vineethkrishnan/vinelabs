@@ -15,7 +15,7 @@ highlights:
   - Responsive with a mobile breakpoint hook for graceful downgrade
 order: 140
 repo: https://github.com/vineethkrishnan/jquery.verticalScroll.js
-docs: https://jquery-vertical-scroll-docs.vinelabs.de
+docs: https://jquery-vertical-scroll-docs.vinelab.in
 install: npm install @vineethnkrishnan/jquery.verticalscroll
 ---
 

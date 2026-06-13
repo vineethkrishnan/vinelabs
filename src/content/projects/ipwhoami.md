@@ -14,7 +14,7 @@ highlights:
   - Quiet, parse-friendly output suitable for piping into other tools
 order: 80
 repo: https://github.com/vineethkrishnan/ipwhoami
-docs: https://ipwhoami-docs.vinelabs.de
+docs: https://ipwhoami-docs.vinelab.in
 install: npm install -g ipwhoami
 ---
 
