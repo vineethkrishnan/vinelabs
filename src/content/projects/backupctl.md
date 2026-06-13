@@ -4,7 +4,7 @@ tagline: Multi-project backup orchestration with restic, restored without surpri
 description: Standalone Docker service that runs scheduled backups for many projects from one YAML file. Handles PostgreSQL, MySQL, and MongoDB dumps plus arbitrary file trees, encrypts and deduplicates via restic, and routes notifications to Slack, email, or webhooks. Every run is tracked in PostgreSQL with stage-by-stage progress and orphan-aware crash recovery.
 language: TypeScript
 license: MIT
-status: beta
+status: stable
 categories:
   - web-apps
   - cli-tools

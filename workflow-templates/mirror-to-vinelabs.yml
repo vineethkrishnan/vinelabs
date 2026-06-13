@@ -51,7 +51,7 @@ jobs:
             exit 1
           fi
           git config --global user.name "vinelabs-mirror-bot"
-          git config --global user.email "mirror-bot@vinelabs.de"
+          git config --global user.email "mirror-bot@vinelab.in"
           git remote add mirror "https://x-access-token:${MIRROR_PAT}@github.com/vinelabs-de/${MIRROR_REPO}.git"
           # --mirror pushes all refs (branches, tags, notes) and prunes deleted refs on the target.
           git push mirror --mirror

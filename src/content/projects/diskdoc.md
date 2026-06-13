@@ -4,7 +4,7 @@ tagline: Rust TUI that finds what is eating your disk and guides you through cle
 description: Parallel directory walker with a responsive terminal UI. Explicitly recognises Docker artifacts, package caches (npm, cargo, etc.), log files, and build outputs like `target/` and `node_modules/`. Never auto-deletes - selection plus confirmation is always required.
 language: Rust
 license: MIT
-status: beta
+status: stable
 categories:
   - cli-tools
 highlights:

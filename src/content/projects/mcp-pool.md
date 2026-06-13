@@ -4,7 +4,7 @@ tagline: Curated Model Context Protocol servers for the SaaS tools teams actuall
 description: Eleven MCP servers in one monorepo, each shipped as its own npm package - Stripe, Sentry, Notion, Linear, Datadog, Vercel, PagerDuty, HubSpot, Intercom, Shopify, and Google Workspace. Drop any of them into Claude Desktop or another MCP-compatible client and ask questions in natural language backed by live data, no dashboard switching.
 language: TypeScript
 license: MIT
-status: beta
+status: stable
 categories:
   - ai-agents
 highlights:
@@ -15,7 +15,7 @@ highlights:
   - Per-package CI, security, and quality gates so a bug in one does not ship to all
 order: 130
 repo: https://github.com/vineethkrishnan/mcp-pool
-docs: https://mcp-pool.vinelabs.de
+docs: https://mcp-pool.vinelab.in
 install: npx -y @vineethnkrishnan/stripe-mcp
 ---
 

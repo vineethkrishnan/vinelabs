@@ -15,7 +15,7 @@ highlights:
   - macOS, Linux, Windows
 order: 30
 repo: https://github.com/vineethkrishnan/agent-sessions
-docs: https://agent-sessions.vinelabs.de
+docs: https://agent-sessions.vinelab.in
 install: npm install -g @vineethnkrishnan/agent-sessions
 ---
 

@@ -18,7 +18,7 @@ const projects = (await getCollection("projects"))
 const projectsStructuredData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "VineLabs open-source projects",
+  name: "VineLab open-source projects",
   itemListElement: projects.map((project, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -35,7 +35,7 @@ const projectsStructuredData = {
 };
 ---
 
-<BaseLayout title="VineLabs - A small lab. Many things shipped." description={description}>
+<BaseLayout title="VineLab - A small lab. Many things shipped." description={description}>
   <script
     type="application/ld+json"
     is:inline

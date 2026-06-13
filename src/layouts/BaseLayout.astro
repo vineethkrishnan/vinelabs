@@ -17,24 +17,24 @@ const {
   ogImage = "/brand/og-default.png",
 } = Astro.props;
 
-const siteOrigin = Astro.site ?? "https://vinelabs.de";
+const siteOrigin = Astro.site ?? "https://vinelab.in";
 const canonical = new URL(pathname, siteOrigin).toString();
 const ogImageUrl = new URL(ogImage, siteOrigin).toString();
-const fullTitle = title.includes("VineLabs") ? title : `${title} | VineLabs`;
+const fullTitle = title.includes("VineLab") ? title : `${title} | VineLab`;
 
 const siteStructuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
-      name: "VineLabs",
+      name: "VineLab",
       url: new URL("/", siteOrigin).toString(),
       description:
         "A personal, non-commercial open-source lab: CLI tools, web apps, browser extensions, AI agents, platform extensions, and design systems.",
     },
     {
       "@type": "Organization",
-      name: "VineLabs",
+      name: "VineLab",
       url: new URL("/", siteOrigin).toString(),
       logo: new URL("/brand/icon-512.png", siteOrigin).toString(),
     },
@@ -65,7 +65,7 @@ const siteStructuredData = {
     <meta property="og:image:width" content="1536" />
     <meta property="og:image:height" content="1024" />
     <meta property="og:image:alt" content={fullTitle} />
-    <meta property="og:site_name" content="VineLabs" />
+    <meta property="og:site_name" content="VineLab" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />

@@ -4,7 +4,7 @@ tagline: Production-ready Docling deployment for self-hosted document processing
 description: Docker Compose stack around IBM Research's Docling - FastAPI for the synchronous endpoints, Celery + Redis for batch and long-running conversions, Nginx with Let's Encrypt at the edge. Convert PDF, DOCX, PPTX, XLSX, HTML, and images to Markdown, JSON, or plain text with table extraction, OCR, and vector embeddings for RAG. One `make init` to deploy.
 language: Python
 license: MIT
-status: beta
+status: stable
 categories:
   - web-apps
   - ai-agents
