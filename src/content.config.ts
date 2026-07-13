@@ -15,6 +15,7 @@ const projects = defineCollection({
         z.enum([
           "cli-tools",
           "web-apps",
+          "mobile-apps",
           "browser-extensions",
           "ai-agents",
           "platform-extensions",
