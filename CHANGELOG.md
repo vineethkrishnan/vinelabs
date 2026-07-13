@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.3](https://github.com/vineethkrishnan/vinelabs/compare/v0.1.2...v0.1.3) (2026-07-13)
+
+
+### Features
+
+* **content:** add WeSpend under new mobile-apps category ([#17](https://github.com/vineethkrishnan/vinelabs/issues/17)) ([3a88597](https://github.com/vineethkrishnan/vinelabs/commit/3a885976e65c5b9ab83b539663150529b1c51872))
+
+
+### Bug Fixes
+
+* **brand:** regenerate app icons to drop VineLabs wordmark ([#11](https://github.com/vineethkrishnan/vinelabs/issues/11)) ([fc4f2d1](https://github.com/vineethkrishnan/vinelabs/commit/fc4f2d15de695e8606917eba2b1648acd66a5f04))
+
 ## [0.1.2](https://github.com/vineethkrishnan/vinelabs/compare/v0.1.1...v0.1.2) (2026-05-31)
 
 
