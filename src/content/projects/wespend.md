@@ -4,7 +4,7 @@ tagline: Household expense tracker for shared monthly budgets
 description: Expo + React Native app for couples and families who share a monthly pot. One person funds the budget, everyone logs spending against automatic daily and weekly limits from their own phone, and at the end of each week the app works out who needs reimbursing. Real-time sync via Supabase with an offline cache.
 language: TypeScript
 license: MIT
-status: beta
+status: stable
 categories:
   - mobile-apps
 highlights:
