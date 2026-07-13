@@ -1,6 +1,7 @@
 export const CATEGORY_SLUGS = [
   "cli-tools",
   "web-apps",
+  "mobile-apps",
   "browser-extensions",
   "ai-agents",
   "platform-extensions",
@@ -29,6 +30,12 @@ export const CATEGORIES: Category[] = [
     name: "Web apps",
     blurb: "Self-hostable, audit-friendly web software.",
     icon: "M3 6h18M3 6v12h18V6M7 10h4M7 14h6",
+  },
+  {
+    slug: "mobile-apps",
+    name: "Mobile apps",
+    blurb: "Expo and React Native apps for iOS and Android.",
+    icon: "M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2ZM11 18h2",
   },
   {
     slug: "browser-extensions",
