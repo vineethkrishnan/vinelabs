@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/vineethkrishnan/vinelabs/compare/v0.1.3...v0.1.4) (2026-07-13)
+
+
+### Bug Fixes
+
+* **content:** mark WeSpend as stable ([#18](https://github.com/vineethkrishnan/vinelabs/issues/18)) ([8efb2ae](https://github.com/vineethkrishnan/vinelabs/commit/8efb2aedc97284f26b87a692b06cd7fca853c05e))
+
 ## [0.1.3](https://github.com/vineethkrishnan/vinelabs/compare/v0.1.2...v0.1.3) (2026-07-13)
 
 
